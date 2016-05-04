@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="OR SELECT FROM NEARBY PLACES"
+        android:textColor="#29a3c7" 
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
+    <View android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#29a3c7"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+</LinearLayout>

@@ -1,0 +1,645 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mapbox="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- The main content view -->
+    <RelativeLayout
+        android:id="@+id/mapview_relaytive_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <com.mapbox.mapboxsdk.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            mapbox:center_latitude="51.50325"
+            mapbox:center_longitude="-0.11968"
+            mapbox:zoom="15"
+            mapbox:access_token="@string/accessToken"
+            mapbox:style_url="@string/style_mapbox_streets"/>
+
+        <ImageButton
+            android:id="@+id/ib_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/icon_food" />
+
+        <TextView
+            android:id="@+id/tv_date_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ib_time"
+            android:layout_marginLeft="10dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/tap_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/mapbox_blue"
+            android:singleLine="true"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/touch_bt_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            android:background="@color/mapbox_blue"
+            android:drawableTop="@drawable/icon_food"
+            android:text="@string/sign_in"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/touch_bt_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/touch_bt_other"
+            android:background="@color/mapbox_blue"
+            android:drawableTop="@drawable/icon_food"
+            android:text="@string/sign_in"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/touch_bt_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/touch_bt_ok"
+            android:background="@color/mapbox_blue"
+            android:drawableTop="@drawable/icon_food"
+            android:text="@string/sign_in"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/map_bt_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:onClick="getCurrentClicked"
+            android:src="@drawable/icon_food" />
+
+        <ImageButton
+            android:id="@+id/buttonTrackingMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/icon_food" />
+        <TextView
+            android:id="@+id/map_et_description_share"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:alpha="100"
+            android:background="@drawable/icon_food"
+            android:visibility="gone"
+            android:gravity="center" />
+
+
+        <Button
+            android:id="@+id/map_view_quickaction"
+            android:layout_width="fill_parent"
+            android:layout_height="5dp"
+            android:layout_alignParentBottom="true"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/bt_direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/map_bt_current"
+            android:layout_marginRight="10dp"
+            android:onClick="directionClicked"
+            android:visibility="gone"
+            android:src="@drawable/icon_food" />
+
+        <ImageButton
+            android:id="@+id/bt_postphoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/bt_direction"
+            android:layout_marginRight="10dp"
+            android:onClick="postPhotoClicked"
+            android:src="@drawable/icon_food"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/demo_vietnam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/buttonTrackingMode"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:onClick="demoVietNamClicked"
+            android:src="@drawable/icon_food" />
+        <ImageButton
+            android:id="@+id/demo_taiwan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/demo_vietnam"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="demoTaiwanClick"
+            android:src="@drawable/icon_food" />
+
+        <ImageButton
+            android:id="@+id/speed_of_street"
+            android:layout_width="54dp"
+            android:layout_height="50dp"
+            android:onClick="drawSpeed"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_food"
+            android:layout_alignLeft="@+id/demo_taiwan"
+            android:visibility="invisible"
+            android:layout_alignStart="@+id/demo_taiwan"
+            android:layout_below="@+id/demo_taiwan"
+            />
+
+        <ImageButton
+            android:id="@+id/register_mqtt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showHideCenterButton"
+            android:src="@drawable/icon_food"
+            android:layout_alignTop="@+id/speed_of_street"
+            android:layout_alignLeft="@+id/speed_of_street"
+            android:layout_alignStart="@+id/speed_of_street" />
+
+
+        <Button
+            android:id="@+id/register_mqtt_connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/register_mqtt"
+            android:layout_marginRight="10dp"
+            android:onClick="startRegisterScreen"
+            android:visibility="gone"
+            android:text="Connect" />
+
+        <Button
+            android:id="@+id/register_mqtt_disable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/register_mqtt_connect"
+            android:layout_marginRight="10dp"
+            android:onClick="testSubcriberAct"
+            android:visibility="gone"
+            android:text="Disable" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/center_request"
+            android:src="@drawable/icon_food"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SET LOCATION"
+            android:id="@+id/set_location"
+            android:minHeight="1dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/icon_food"
+            android:textColor="@android:color/white"
+            android:layout_above="@+id/center_request"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Request Nearby Places"
+            android:id="@+id/btn_request_nearby"
+            android:layout_above="@+id/map_view_quickaction"
+            android:layout_toRightOf="@+id/tv_date_time"
+            android:layout_alignRight="@+id/demo_vietnam"
+            android:visibility="invisible"
+            android:layout_alignEnd="@+id/demo_vietnam" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search Destination"
+            android:visibility="gone"
+            android:id="@+id/buttonSearchDest"
+            android:layout_above="@+id/btn_request_nearby"
+            android:layout_alignLeft="@+id/touch_bt_cancel"
+            android:layout_alignStart="@+id/touch_bt_cancel" />
+
+        <TextView
+            android:id="@+id/speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 km/h"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="#FF0000"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Video"
+            android:id="@+id/btn_upload_video"
+            android:layout_alignParentBottom="true"
+            android:onClick="insertVideoAction"
+            android:visibility="gone"
+            android:layout_toRightOf="@+id/tv_date_time"
+            android:layout_toLeftOf="@+id/center_request"
+            android:layout_toStartOf="@+id/center_request" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Video"
+            android:visibility="gone"
+            android:id="@+id/btn_view_video"
+            android:layout_alignBottom="@+id/btn_upload_video"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/center_request"
+            android:layout_toEndOf="@+id/center_request" />
+
+    </RelativeLayout>
+    <!-- The navigation drawer -->
+    <ScrollView
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#202020"
+        android:dividerHeight="0dp"
+        android:fillViewport="false">
+
+        <LinearLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dr_tv_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/sign_in"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/linearSearch"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/icon_food"
+                android:onClick="searchingClicked"
+                android:visibility="gone"
+                android:orientation="horizontal"
+
+                >
+
+                <Button
+                    android:id="@+id/drawer_searching"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_food"
+
+                    />
+
+                <TextView
+                    android:id="@+id/dr_tv_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/sign_in"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearNew"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/icon_food"
+                android:onClick="addingClicked"
+                android:visibility="gone"
+                android:orientation="horizontal"
+
+                >
+
+                <Button
+                    android:id="@+id/drawer_adding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_food"
+
+                    />
+
+                <TextView
+                    android:id="@+id/dr_tv_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/sign_in"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearNote"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/icon_food"
+                android:onClick="noteClicked"
+                android:orientation="horizontal"
+                android:visibility="gone"
+
+                >
+
+                <Button
+                    android:id="@+id/drawer_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_food"
+
+                    />
+
+                <TextView
+                    android:id="@+id/dr_tv_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/sign_in"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/label_gps_tracker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/sign_in"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:id="@+id/layout_gps_tracker"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/icon_food"
+                android:onClick="onTrackerClicked"
+                android:orientation="horizontal"
+
+                >
+
+                <Button
+                    android:id="@+id/btn_gps_tracker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_food"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_gps_tracker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/sign_in"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/dr_tv_traffic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/sign_in"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/linearSpeed"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:onClick="speedClicked"
+                android:orientation="horizontal"
+
+
+                >
+
+                <Button
+                    android:id="@+id/drawer_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_food"
+
+                    />
+
+                <TextView
+                    android:id="@+id/dr_tv_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/sign_in"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearHotspots"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:onClick="hotSpotsclicked"
+
+                android:orientation="horizontal"
+
+
+                >
+
+                <Button
+                    android:id="@+id/drawer_hotSpots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/icon_food"
+
+                    />
+
+                <TextView
+                    android:id="@+id/dr_tv_hotSpots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/sign_in"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearPhoto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:onClick="photoClicked"
+                android:orientation="horizontal"
+                >
+                <Button
+                    android:id="@+id/drawer_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_food"
+
+                    />
+
+                <TextView
+                    android:id="@+id/dr_tv_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/sign_in"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:id="@+id/linearWarning"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:onClick="warningClicked"
+                android:orientation="horizontal"
+
+
+                >
+
+                <Button
+                    android:id="@+id/drawer_warning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_food"
+
+                    />
+
+                <TextView
+                    android:id="@+id/dr_tv_warning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/sign_in"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+    <slidinguppanel.SlidingUpPanelLayout
+        android:id="@+id/slidingLayout"
+        android:gravity="bottom"
+        app:shadowHeight="0dp"
+        app:paralaxOffset="@dimen/paralax_offset"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <FrameLayout
+            android:gravity="top"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <RelativeLayout
+                android:id="@+id/mapContainer"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/slidingContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <View
+                android:id="@+id/transparentView"
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/map_height"
+                android:layout_alignParentTop="true"/>
+
+            <ListView
+                android:id="@+id/list"
+                android:cacheColorHint="@android:color/white"
+                android:drawSelectorOnTop="true"
+                android:dividerHeight="@dimen/divider_height"
+                android:divider="@android:color/darker_gray"
+                android:background="@android:color/transparent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@id/transparentView"
+                android:smoothScrollbar="false"/>
+        </RelativeLayout>
+    </slidinguppanel.SlidingUpPanelLayout>
+
+</android.support.v4.widget.DrawerLayout>

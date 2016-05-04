@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="httbdd.cse.nghiatran.halofind" >
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <application
+        android:name=".HaloFindApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppBaseTheme" >
+        <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="httbdd.cse.nghiatran.halofind.placepicker.SampleGlideModule"
+            android:value="GlideModule" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1ecf8add2c998c21fa70fcc4ccf7ff400a2fba9b"
+            />
+        <activity
+            android:name=".screen.StartActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name=".screen.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" >
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".screen.MapActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name=".screen.SignInActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name=".screen.RegisterActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name=".screen.DetailCategoryActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name=".screen.DetailAddressActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name=".screen.PostActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/upload"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name=".screen.SearchActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name=".screen.DetailFoodActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme" />
+        <activity
+            android:name=".foursquare.FoursquareActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
+        <activity
+            android:name=".placepicker.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
+        <activity
+            android:label="@string/searchphoto"
+            android:name=".foursquare.SearchLocation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
+        <activity
+            android:label="@string/searchphoto"
+            android:name=".slidinguppanel.map.SlidingUpMap"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
+    </application>
+
+</manifest>

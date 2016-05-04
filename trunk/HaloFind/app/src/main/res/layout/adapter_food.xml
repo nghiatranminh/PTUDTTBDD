@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/bg_item_feed"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_toRightOf="@+id/avatar"
+            android:singleLine="true"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <httbdd.cse.nghiatran.halofind.views.widgets.SquaredFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </httbdd.cse.nghiatran.halofind.views.widgets.SquaredFrameLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_2dp"
+        android:paddingLeft="@dimen/_8dp"
+        android:paddingRight="@dimen/_8dp"
+        android:paddingTop="@dimen/_2dp"
+        android:textColor="@color/secondary_text" />
+
+    <TextView
+        android:id="@+id/desctiption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_2dp"
+        android:paddingLeft="@dimen/_8dp"
+        android:paddingRight="@dimen/_8dp"
+        android:paddingTop="@dimen/_2dp"
+        android:textColor="@color/secondary_text" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/_2dp"
+        android:paddingLeft="@dimen/_8dp"
+        android:paddingRight="@dimen/_8dp"
+        android:paddingTop="@dimen/_2dp">
+
+        <ImageButton
+            android:id="@+id/btnLike"
+            android:layout_width="@dimen/_48dp"
+            android:layout_height="@dimen/_48dp"
+            android:background="@drawable/btn_feed_action"
+            android:padding="@dimen/_4dp"
+            android:src="@drawable/ic_heart_outline_grey" />
+
+        <ImageButton
+            android:id="@+id/btnComments"
+            android:layout_width="@dimen/_48dp"
+            android:layout_height="@dimen/_48dp"
+            android:layout_toRightOf="@+id/btnLike"
+            android:background="@drawable/btn_feed_action"
+            android:padding="@dimen/_4dp"
+            android:src="@drawable/ic_comment_outline_grey" />
+
+        <ImageButton
+            android:id="@+id/btnMore"
+            android:layout_width="@dimen/_48dp"
+            android:layout_height="@dimen/_48dp"
+            android:layout_toRightOf="@+id/btnComments"
+            android:background="@drawable/btn_feed_action"
+            android:padding="@dimen/_4dp"
+            android:src="@drawable/ic_more_grey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/btnMore"
+            android:gravity="center_vertical|right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_heart_small_blue" />
+
+            <TextSwitcher
+                android:id="@+id/tsLikesCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:inAnimation="@anim/slide_in_likes_counter"
+                android:outAnimation="@anim/slide_out_likes_counter">
+
+                <TextView
+                    android:id="@+id/tvLikesCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="123 likes"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent" />
+            </TextSwitcher>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
