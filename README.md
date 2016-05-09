@@ -3,7 +3,7 @@ This application help anyone to find Foods with Foods's location,easy to use.
 
 Members
 
-1	Trần Minh Nghĩa 51202384
+Trần Minh Nghĩa 51202384
 
 Exercises
 - See details in Trunk/Exercicses
