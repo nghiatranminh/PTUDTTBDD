@@ -1,7 +1,7 @@
 # PTUDTTBDD
 This application help anyone to find Foods with Foods's location,easy to use.
 
-Members
+Member
 
 Trần Minh Nghĩa 51202384
 
